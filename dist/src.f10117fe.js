@@ -128,12 +128,20 @@ exports.User = void 0;
 var User =
 /** @class */
 function () {
+  // initialize the User class
+  // constructor takes interface UserProps
   function User(data) {
     this.data = data;
-  }
+  } // retrieve user props
+
 
   User.prototype.get = function (propName) {
     return this.data[propName];
+  }; // update user props, assign data to update
+
+
+  User.prototype.set = function (update) {
+    Object.assign(this.data, update);
   };
 
   return User;
@@ -153,6 +161,12 @@ var user = new User_1.User({
   name: "test",
   id: 1
 });
+user.set({
+  name: "newtest",
+  id: 2
+});
+console.log(user.get("name"));
+console.log(user.get("id"));
 },{"./models/User":"src/models/User.ts"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
