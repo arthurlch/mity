@@ -1,3 +1,5 @@
+import axios, { AxiosResponse } from "axios";
+
 // User composition
 
 /* 
@@ -10,8 +12,9 @@ on(eventName) event system, handle even for user object to syncronize changes in
 */
 
 interface UserProps {
-  name?: string;
   id?: number;
+  name?: string;
+  age?: number;
 }
 
 // create callback, type function.
@@ -46,5 +49,13 @@ export class User {
     handlers.forEach((callback) => {
       callback();
     });
+  }
+
+  fetch(): void {
+    axios
+      .get(`http://localhost:3000/users/${this.get("id")}`)
+      .then((response: AxiosResponse): void => {
+        this.set(response.data);
+      });
   }
 }
