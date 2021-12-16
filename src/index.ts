@@ -4,5 +4,6 @@ const user = new User({ name: "test", id: 1 });
 
 user.set({ name: "newtest", id: 2 });
 
-console.log(user.get("name"));
-console.log(user.get("id"));
+user.on("change", () => {});
+
+console.log(user);
