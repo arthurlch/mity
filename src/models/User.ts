@@ -1,23 +1,31 @@
-// first experiment for User class as global Object
+// User composition
+
+/* 
+private date: UserProps to store data
+get(propsname) to get specific piece of data from user
+set(update, UserProps) change user data(UserProps) 
+on(eventName) event system, handle even for user object to syncronize changes in other files 
+
+
+*/
 
 interface UserProps {
-  // userProps interface for User class data constructor
   name?: string;
   id?: number;
 }
 
+type Callback = () => {};
+
 export class User {
-  // initialize the User class
-  // constructor takes interface UserProps
   constructor(private data: UserProps) {}
 
-  // retrieve user props
   get(propName: string): number | string {
     return this.data[propName];
   }
 
-  // update user props, assign data to update
   set(update: UserProps): void {
     Object.assign(this.data, update);
   }
+
+  on(eventName: string, callback: () => {});
 }

@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/models/User.ts":[function(require,module,exports) {
-"use strict"; // first experiment for User class as global Object
+"use strict"; // User composition
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -128,17 +128,13 @@ exports.User = void 0;
 var User =
 /** @class */
 function () {
-  // initialize the User class
-  // constructor takes interface UserProps
   function User(data) {
     this.data = data;
-  } // retrieve user props
-
+  }
 
   User.prototype.get = function (propName) {
     return this.data[propName];
-  }; // update user props, assign data to update
-
+  };
 
   User.prototype.set = function (update) {
     Object.assign(this.data, update);
