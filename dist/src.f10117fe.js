@@ -2316,13 +2316,13 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./models/User");
 
 var user = new User_1.User({
-  id: 1
+  name: "new record",
+  age: 0
 });
-user.set({
-  name: "new name",
-  age: 77
+user.events.on("change", function () {
+  console.log("change!");
 });
-user.save();
+user.events.trigger("change");
 },{"./models/User":"src/models/User.ts"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
