@@ -2417,11 +2417,14 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./models/User");
 
 var user = new User_1.User({
-  id: 1
+  id: 1,
+  name: 'newuser',
+  age: 0
 });
-user.on('change', function () {
+user.on('save', function () {
   console.log(user);
 });
+user.save();
 user.fetch();
 },{"./models/User":"src/models/User.ts"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
