@@ -2318,6 +2318,10 @@ function () {
     Object.assign(this.data, update);
   };
 
+  Attributes.prototype.getAll = function () {
+    return this.data;
+  };
+
   return Attributes;
 }();
 
@@ -2334,7 +2338,7 @@ var Eventing_1 = require("./Eventing");
 
 var Sync_1 = require("./Sync");
 
-var Attributes_1 = require("./Attributes"); // development URL
+var Attributes_1 = require("./Attributes"); // Default development URL
 
 
 var rootUrl = 'http://localhost:3000/users';
@@ -2386,6 +2390,16 @@ function () {
 
     this.sync.fetch(id).then(function (response) {
       _this.set(response.data);
+    });
+  };
+
+  User.prototype.save = function () {
+    var _this = this;
+
+    this.sync.save(this.attributes.getAll()).then(function (response) {
+      _this.trigger('save');
+    }).catch(function () {
+      _this.trigger('error');
     });
   };
 

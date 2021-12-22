@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { Axios, AxiosResponse } from 'axios';
 import { Eventing } from './Eventing';
 import { Sync } from './Sync';
 import { Attributes } from './Attributes';
@@ -8,7 +8,7 @@ export interface UserProps {
   age?: number;
 }
 
-// development URL
+// Default development URL
 const rootUrl = 'http://localhost:3000/users';
 export class User {
   public events: Eventing = new Eventing();
@@ -44,5 +44,16 @@ export class User {
     this.sync.fetch(id).then((response: AxiosResponse): void => {
       this.set(response.data);
     });
+  }
+
+  save(): void {
+    this.sync
+      .save(this.attributes.getAll())
+      .then((response: AxiosResponse): void => {
+        this.trigger('save');
+      })
+      .catch(() => {
+        this.trigger('error');
+      });
   }
 }
