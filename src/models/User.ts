@@ -1,7 +1,7 @@
-import axios, { AxiosResponse } from "axios";
-import { Eventing } from "./Eventing";
-import { Sync } from "./Sync";
-import { Attributes } from "./Attributes";
+import axios, { AxiosResponse } from 'axios';
+import { Eventing } from './Eventing';
+import { Sync } from './Sync';
+import { Attributes } from './Attributes';
 export interface UserProps {
   id?: number;
   name?: string;
@@ -9,7 +9,7 @@ export interface UserProps {
 }
 
 // development URL
-const rootUrl = "http://localhost:3000/users";
+const rootUrl = 'http://localhost:3000/users';
 export class User {
   public events: Eventing = new Eventing();
   public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
@@ -29,5 +29,20 @@ export class User {
 
   get get() {
     return this.attributes.get;
+  }
+
+  set(update: UserProps): void {
+    this.attributes.set(update);
+    this.events.trigger('change');
+  }
+
+  fetch(): void {
+    const id = this.get('id');
+    if (typeof id !== 'number') {
+      throw new Error('cannot fetch without id');
+    }
+    this.sync.fetch(id).then((response: AxiosResponse): void => {
+      this.set(response.data);
+    });
   }
 }

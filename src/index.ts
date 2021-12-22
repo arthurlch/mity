@@ -1,11 +1,9 @@
-import { User } from "./models/User";
+import { User } from './models/User';
 
-const user = new User({ name: "test1", age: 0 });
+const user = new User({ id: 1 });
 
-console.log(user.get("name"));
-
-user.on("change", () => {
-  console.log("User changed");
+user.on('change', () => {
+  console.log(user);
 });
 
-user.trigger("change");
+user.fetch();

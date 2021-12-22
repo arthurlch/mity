@@ -2337,7 +2337,7 @@ var Sync_1 = require("./Sync");
 var Attributes_1 = require("./Attributes"); // development URL
 
 
-var rootUrl = "http://localhost:3000/users";
+var rootUrl = 'http://localhost:3000/users';
 
 var User =
 /** @class */
@@ -2369,6 +2369,26 @@ function () {
     enumerable: false,
     configurable: true
   });
+
+  User.prototype.set = function (update) {
+    this.attributes.set(update);
+    this.events.trigger('change');
+  };
+
+  User.prototype.fetch = function () {
+    var _this = this;
+
+    var id = this.get('id');
+
+    if (typeof id !== 'number') {
+      throw new Error('cannot fetch without id');
+    }
+
+    this.sync.fetch(id).then(function (response) {
+      _this.set(response.data);
+    });
+  };
+
   return User;
 }();
 
@@ -2383,14 +2403,12 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./models/User");
 
 var user = new User_1.User({
-  name: "test1",
-  age: 0
+  id: 1
 });
-console.log(user.get("name"));
-user.on("change", function () {
-  console.log("User changed");
+user.on('change', function () {
+  console.log(user);
 });
-user.trigger("change");
+user.fetch();
 },{"./models/User":"src/models/User.ts"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
