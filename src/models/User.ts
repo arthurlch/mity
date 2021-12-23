@@ -1,6 +1,4 @@
-import { Eventing } from './Eventing';
-import { ApiSync } from './ApiSync';
-import { Attributes } from './Attributes';
+import { Model } from './Model';
 export interface UserProps {
   id?: number;
   name?: string;
@@ -9,12 +7,4 @@ export interface UserProps {
 
 // Default development URL
 const rootUrl = 'http://localhost:3000/users';
-export class User {
-  public events: Eventing = new Eventing();
-  public sync: ApiSync<UserProps> = new ApiSync<UserProps>(rootUrl);
-  public attributes: Attributes<UserProps>;
-
-  constructor(attributes: UserProps) {
-    this.attributes = new Attributes<UserProps>(attributes);
-  }
-}
+export class User extends Model<UserProps> {}
