@@ -1,2 +1,4 @@
 .cache/
-.db.json
+db.json
+*.log
+.DS_Store
