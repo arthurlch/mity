@@ -1,6 +1,4 @@
-import { Eventing } from './Eventing';
-import { Attributes } from './Attributes';
-import { ApiSync } from './ApiSync';
+import { AxiosPromise } from 'axios';
 
 interface ModelAttributes<T> {
   set(value: T): void;
@@ -8,10 +6,14 @@ interface ModelAttributes<T> {
   get<K extends keyof T>(key: K): T[K];
 }
 
-interface Sync {}
+interface Sync {
+  fetch(id: number): AxiosPromise;
+  save(data: T): AxiosPromise;
+}
 
+type Callback = () => void;
 interface Events {
-  on(eventName: string, callback: () => void): void;
+  on(eventName: string, Callback): void;
   trigger(eventName: string): void;
 }
 
