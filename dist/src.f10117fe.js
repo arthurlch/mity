@@ -146,6 +146,24 @@ function () {
     return "\n      <div>\n        <h1>user form</h1>\n      </div>\n    ";
   };
 
+  UserForm.prototype.bindEvents = function (fragment) {
+    var eventsMap = this.eventsMaps();
+
+    var _loop_1 = function _loop_1(eventKey) {
+      var _a = eventKey.split(':'),
+          eventName = _a[0],
+          selector = _a[1];
+
+      fragment.querySelectorAll(selector).forEach(function (element) {
+        element.addEventListener(eventName, eventsMap[eventKey]);
+      });
+    };
+
+    for (var eventKey in eventsMap) {
+      _loop_1(eventKey);
+    }
+  };
+
   UserForm.prototype.render = function () {
     var templateElement = document.createElement('template');
     templateElement.innerHTML = this.template();

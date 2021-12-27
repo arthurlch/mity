@@ -19,6 +19,16 @@ export class UserForm {
     `;
   }
 
+  bindEvents(fragment: DocumentFragment): void {
+    const eventsMap = this.eventsMaps();
+    for (let eventKey in eventsMap) {
+      const [eventName, selector] = eventKey.split(':');
+      fragment.querySelectorAll(selector).forEach((element) => {
+        element.addEventListener(eventName, eventsMap[eventKey]);
+      });
+    }
+  }
+
   render(): void {
     const templateElement = document.createElement('template');
     templateElement.innerHTML = this.template();
