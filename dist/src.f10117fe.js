@@ -135,11 +135,11 @@ function () {
 
   UserForm.prototype.eventsMaps = function () {
     return {
-      'click:button': this.onButtonClick
+      'click:.set-age': this.onSetAgeClick
     };
   };
 
-  UserForm.prototype.onButtonClick = function () {
+  UserForm.prototype.onSetAgeClick = function () {
     console.log('test');
   };
 

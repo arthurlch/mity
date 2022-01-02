@@ -4,11 +4,11 @@ export class UserForm {
 
   eventsMaps(): { [key: string]: () => void } {
     return {
-      'click:button': this.onButtonClick,
+      'click:.set-age': this.onSetAgeClick,
     };
   }
 
-  onButtonClick(): void {
+  onSetAgeClick(): void {
     console.log('test');
   }
 
