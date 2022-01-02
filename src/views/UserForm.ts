@@ -19,7 +19,7 @@ export class UserForm {
         <div>user name: ${this.model.get('name')} </div>
         <div>user name: ${this.model.get('age')} </div>
         <input />
-        <button>Hi there</button>
+        <button class="set-age">Hi there</button>
       </div>
     `;
   }

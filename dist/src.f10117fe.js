@@ -144,7 +144,7 @@ function () {
   };
 
   UserForm.prototype.template = function () {
-    return "\n      <div>\n        <h1>user form</h1>\n        <div>user name: ".concat(this.model.get('name'), " </div>\n        <div>user name: ").concat(this.model.get('age'), " </div>\n        <input />\n        <button>Hi there</button>\n      </div>\n    ");
+    return "\n      <div>\n        <h1>user form</h1>\n        <div>user name: ".concat(this.model.get('name'), " </div>\n        <div>user name: ").concat(this.model.get('age'), " </div>\n        <input />\n        <button class=\"set-age\">Hi there</button>\n      </div>\n    ");
   };
 
   UserForm.prototype.bindEvents = function (fragment) {
