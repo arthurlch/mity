@@ -1,6 +1,10 @@
 import { User } from '../models/User';
 export class UserForm {
-  constructor(public parent: Element, public model: User) {}
+  constructor(public parent: Element, public model: User) {
+    this.model.on('change', () => {
+      this.render();
+    });
+  }
 
   eventsMaps(): { [key: string]: () => void } {
     return {

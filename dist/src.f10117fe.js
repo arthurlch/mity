@@ -137,6 +137,10 @@ function () {
     this.onSetAgeClick = function () {
       _this.model.setRandomAge();
     };
+
+    this.model.on('change', function () {
+      _this.render();
+    });
   }
 
   UserForm.prototype.eventsMaps = function () {
