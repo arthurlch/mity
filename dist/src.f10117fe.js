@@ -2564,6 +2564,13 @@ function (_super) {
     });
   };
 
+  User.prototype.setRandomAge = function () {
+    var age = Math.round(Math.random() * 100);
+    this.set({
+      age: age
+    });
+  };
+
   return User;
 }(Model_1.Model);
 
