@@ -3,6 +3,10 @@ import { User } from './models/User';
 
 const user = User.buildUser({ name: 'NAME', age: 20 });
 
-const userForm = new UserForm(document.getElementById('root'), user);
+const root = document.getElementById('root');
 
-userForm.render();
+if (root) {
+  const userForm = new UserForm(root, user);
+} else {
+  throw new Error('error');
+}
