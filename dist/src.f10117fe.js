@@ -138,6 +138,10 @@ function () {
     });
   }
 
+  View.prototype.eventsMap = function () {
+    return {};
+  };
+
   View.prototype.bindEvents = function (fragment) {
     var eventsMap = this.eventsMap();
 

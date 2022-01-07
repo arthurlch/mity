@@ -1,15 +1,17 @@
-interface ViewModel {
-  on(eventName: string, callback: () => void): void;
-}
-export abstract class View<T extends ViewModel> {
+import { Model } from '../models/Model';
+
+export abstract class View<T extends Model<K>, K> {
   constructor(public parent: Element, public model: T) {
     this.model.on('change', () => {
       this.render();
     });
   }
 
-  abstract eventsMap(): { [key: string]: () => void };
   abstract template(): string;
+
+  eventsMap(): { [key: string]: () => void } {
+    return {};
+  }
 
   bindEvents(fragment: DocumentFragment): void {
     const eventsMap = this.eventsMap();
