@@ -388,15 +388,15 @@ function (_super) {
 
   UserEdit.prototype.regionsMap = function () {
     return {
-      UserShow: '.user-show',
-      UserForm: '.user-form'
+      userShow: '.user-show',
+      userForm: '.user-form'
     };
   }; // HTML Parsing trough template using new DOMParser() would be a better option
 
 
   UserEdit.prototype.onRender = function () {
-    var userShow = new UserShow_1.UserShow(this.regions.userShow, this.model);
-    var userForm = new UserForm_1.UserForm(this.regions.userFhow, this.model);
+    new UserShow_1.UserShow(this.regions.userShow, this.model).render();
+    new UserForm_1.UserForm(this.regions.userForm, this.model).render();
   };
 
   UserEdit.prototype.template = function () {

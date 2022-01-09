@@ -6,15 +6,15 @@ import { UserForm } from './UserForm';
 export class UserEdit extends View<User, UserProps> {
   regionsMap(): { [key: string]: string } {
     return {
-      UserShow: '.user-show',
-      UserForm: '.user-form',
+      userShow: '.user-show',
+      userForm: '.user-form',
     };
   }
 
   // HTML Parsing trough template using new DOMParser() would be a better option
   onRender(): void {
-    const userShow = new UserShow(this.regions.userShow, this.model);
-    const userForm = new UserForm(this.regions.userFhow, this.model);
+    new UserShow(this.regions.userShow, this.model).render();
+    new UserForm(this.regions.userForm, this.model).render();
   }
 
   template(): string {
