@@ -1,7 +1,7 @@
 import { View } from './View';
 import { User, UserProps } from '../models/User';
-import { UserShow } from './UserShow';
 import { UserForm } from './UserForm';
+import { UserShow } from './UserShow';
 
 export class UserEdit extends View<User, UserProps> {
   regionsMap(): { [key: string]: string } {
@@ -11,7 +11,8 @@ export class UserEdit extends View<User, UserProps> {
     };
   }
 
-  // HTML Parsing trough template using new DOMParser() would be a better option
+  // Parsing the HTML is a nicer solution.
+  // Manual nesting needs to be replace with a parsing solution
   onRender(): void {
     new UserShow(this.regions.userShow, this.model).render();
     new UserForm(this.regions.userForm, this.model).render();
@@ -20,8 +21,8 @@ export class UserEdit extends View<User, UserProps> {
   template(): string {
     return `
       <div>
-        <div class="user-form"></div>
         <div class="user-show"></div>
+        <div class="user-form"></div>
       </div>
     `;
   }
