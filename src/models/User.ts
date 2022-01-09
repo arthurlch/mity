@@ -6,10 +6,10 @@ import { Collection } from './Collection';
 
 export interface UserProps {
   id?: number;
-  name?: string;
-  age?: number;
+  email?: string;
 }
 
+// Change root url in development
 const rootUrl = 'http://localhost:3000/users';
 
 export class User extends Model<UserProps> {
@@ -27,8 +27,5 @@ export class User extends Model<UserProps> {
     );
   }
 
-  setRandomAge(): void {
-    const age = Math.round(Math.random() * 100);
-    this.set({ age });
-  }
+  // Add new functionality to user here
 }

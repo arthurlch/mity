@@ -1,4 +1,3 @@
 .cache/
-db.json
 *.log
 .DS_Store
