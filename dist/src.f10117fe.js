@@ -165,11 +165,21 @@ function () {
     }
   };
 
+  View.prototype.mapRegions = function (fragment) {
+    var regionsMap = this.regionsMap;
+
+    for (var key in regionsMap) {
+      var selector = regionsMap[key];
+      this.regions[key] = fragment.querySelector(selector);
+    }
+  };
+
   View.prototype.render = function () {
     this.parent.innerHTML = '';
     var templateElement = document.createElement('template');
     templateElement.innerHTML = this.template();
     this.bindEvents(templateElement.content);
+    this.mapRegions(templateElement.content);
     this.parent.append(templateElement.content);
   };
 
