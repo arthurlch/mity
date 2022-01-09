@@ -133,10 +133,15 @@ function () {
 
     this.parent = parent;
     this.model = model;
+    this.regions = {};
     this.model.on('change', function () {
       _this.render();
     });
   }
+
+  View.prototype.regionsMap = function () {
+    return {};
+  };
 
   View.prototype.eventsMap = function () {
     return {};
