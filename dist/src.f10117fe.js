@@ -166,11 +166,15 @@ function () {
   };
 
   View.prototype.mapRegions = function (fragment) {
-    var regionsMap = this.regionsMap;
+    var regionsMap = this.regionsMap();
 
     for (var key in regionsMap) {
       var selector = regionsMap[key];
-      this.regions[key] = fragment.querySelector(selector);
+      var element = fragment.querySelector(selector);
+
+      if (element) {
+        this.regions[key] = element;
+      }
     }
   };
 
