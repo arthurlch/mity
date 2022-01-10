@@ -114,12 +114,22 @@ Niiti is based on a View Model pattern.
 
 Eventing.ts contain basics event:
 
-on.(eventName, callback)
+** on.(eventName, callback) **
 
 ```
 user.on('change', () => {
-  console.log('callback')
+  console.log('user change')
 })
+```
+
+** trigger(eventName) **
+
+trigger on.('change') event defined above
+
+```
+user.trigger('change)
+
+// 'user change'
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
