@@ -114,7 +114,7 @@ Niiti is based on a View Model pattern.
 
 Eventing.ts contain basics event:
 
-** on.(eventName, callback) **
+**on.(eventName, callback)**
 
 ```
 user.on('change', () => {
@@ -122,7 +122,7 @@ user.on('change', () => {
 })
 ```
 
-** trigger(eventName) **
+**trigger(eventName)**
 
 trigger on.('change') event defined above
 
