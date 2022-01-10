@@ -5,6 +5,7 @@ import { Eventing } from './Eventing';
 import { Collection } from './Collection';
 
 export interface UserProps {
+  // set the data from your db to your model.
   id?: number;
   email?: string;
 }

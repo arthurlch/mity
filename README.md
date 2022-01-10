@@ -57,7 +57,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -69,15 +68,14 @@
 
 ## About The Project
 
-TS framework for studies and personal use.
-Heavily inspired by Stephen Grider, Minko Gechev, Marvin Frachet.
+Nitti is a TS framework for studies and personal use.
+Heavily inspired by Stephen Grider course and Minko Gechev, Marvin Frachet.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
 
 - [Typescript](https://www.typescriptlang.org/)
-- [Parcel](https://parceljs.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -85,12 +83,12 @@ Heavily inspired by Stephen Grider, Minko Gechev, Marvin Frachet.
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+git clone https://github.com/arthurlch/nitii.git
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Node 14 ~
+Typescript 7 ~
 
 - npm
   ```sh
@@ -99,18 +97,9 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
+   git clone https://github.com/arthurlch/nitii.git
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -119,9 +108,19 @@ This is an example of how to list things you need to use the software and how to
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Niiti is based on a View Model pattern.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### Eventing
+
+Eventing.ts contain basics event:
+
+on.(eventName, callback)
+
+```
+user.on('change', () => {
+  console.log('callback')
+})
+```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -129,12 +128,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-  - [] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/arthurlch/nitii/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -142,16 +136,7 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Please do not open PR.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -167,9 +152,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Arthur - [@twitter_handle](https://twitter.com/arthurlch)
+Project Link: [https://github.com/arthurlch/nitii](https://github.com/arthurlch/nitii)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -177,9 +161,7 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 ## Acknowledgments
 
-- []()
-- []()
-- []()
+- [Stephen Grider](https://github.com/StephenGrider)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
