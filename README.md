@@ -124,12 +124,25 @@ user.on('change', () => {
 
 **trigger(eventName)**
 
-trigger on.('change') event defined above
+trigger on.('change') wil trigger event defined above
 
 ```
 user.trigger('change)
 
 // 'user change'
+```
+
+### Sync
+
+ApiSync.ts contain all the Sync properties available.
+
+**fetch(id)**
+
+```
+let userId = 1;
+user.fetch(userId)
+
+// return axios.get(`${this.url}/${id}`)
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
