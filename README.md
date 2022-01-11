@@ -127,22 +127,55 @@ user.on('change', () => {
 trigger on.('change') wil trigger event defined above
 
 ```
-user.trigger('change)
+user.trigger('change);
 
 // 'user change'
 ```
 
-### Sync
+### ApiSync
 
 ApiSync.ts contain all the Sync properties available.
 
-**fetch(id)**
+**fetch(id): Promise**
 
 ```
 let userId = 1;
-user.fetch(userId)
+user.fetch(userId);
 
 // return axios.get(`${this.url}/${id}`)
+```
+
+**save()**
+
+```
+const user = New User({id: 1, name: 'user'});
+
+user.on('save', () => {
+  console.log(user)
+});
+user.save();
+
+```
+
+### Attributes
+
+Basic attributes to retrieve data and modify data.
+
+**get(target)**
+
+```
+user = New User({id: 1, name: 'test'})
+user.get('name')
+
+// 'test'
+```
+
+**set(updateTarget)**
+
+```
+user = New User({id: 1, name: 'test'})
+
+uset.set({name: 'newName'})
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
