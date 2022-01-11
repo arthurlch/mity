@@ -110,7 +110,9 @@ Typescript 7 ~
 
 Niiti is based on a View Model pattern.
 
-### Eventing
+### Model
+
+#### Eventing
 
 Eventing.ts contain basics event:
 
@@ -132,7 +134,7 @@ user.trigger('change);
 // 'user change'
 ```
 
-### ApiSync
+#### ApiSync
 
 ApiSync.ts contain all the Sync properties available.
 
@@ -157,7 +159,7 @@ user.save();
 
 ```
 
-### Attributes
+#### Attributes
 
 Basic attributes to retrieve data and modify data.
 
@@ -188,7 +190,7 @@ user.getAll();
 // shows User model Object with attributes etc
 ```
 
-### Collection
+#### Collection
 
 Collection objects provide a method of storing and retrieving items in memory based upon a key in a data structure that stores pairs of keys and values.
 
@@ -207,7 +209,7 @@ collection.fetch();
 // Collection(events, attributes, models[array that contain all users or model])
 ```
 
-### Model
+#### User Model
 
 Niiti provide default model 'Model.ts' which other model will inherit.
 
@@ -253,6 +255,8 @@ export class User extends Model<UserProps> {
   }
 }
 ```
+
+### Views
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
