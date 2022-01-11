@@ -164,8 +164,8 @@ Basic attributes to retrieve data and modify data.
 **get(target)**
 
 ```
-user = New User({id: 1, name: 'test'})
-user.get('name')
+user = New User({id: 1, name: 'test'});
+user.get('name');
 
 // 'test'
 ```
@@ -173,9 +173,85 @@ user.get('name')
 **set(updateTarget)**
 
 ```
-user = New User({id: 1, name: 'test'})
+user = New User({id: 1, name: 'test'});
 
-uset.set({name: 'newName'})
+uset.set({name: 'newName'});
+```
+
+**getAll()**
+
+```
+user = New User({id: 1, name: 'test'});
+
+user.getAll();
+
+// shows User model Object with attributes etc
+```
+
+### Collection
+
+Collection objects provide a method of storing and retrieving items in memory based upon a key in a data structure that stores pairs of keys and values.
+
+ex:
+
+```
+const myUrl = 'http://localhost:3000/users'
+const collection = New Collection(myUrl);
+
+collection.on('change', () => {
+console.log(collection);
+});
+
+collection.fetch();
+
+// Collection(events, attributes, models[array that contain all users or model])
+```
+
+### Model
+
+Niiti provide default model 'Model.ts' which other model will inherit.
+
+A user model is also provided
+
+```
+import { Model } from './Model';
+import { Attributes } from './Attributes';
+import { ApiSync } from './ApiSync';
+import { Eventing } from './Eventing';
+import { Collection } from './Collection';
+
+// init and interface to customize your Model
+export interface UserProps {
+  id?: number;
+  name?: string;
+  age?: number;
+}
+
+// set your development/prod url.
+const rootUrl = 'http://localhost:3000/users';
+
+// init user class
+export class User extends Model<UserProps> {
+  static buildUser(attrs: UserProps): User {
+    return new User(
+      new Attributes<UserProps>(attrs),
+      new Eventing(),
+      new ApiSync<UserProps>(rootUrl)
+    );
+  }
+
+  static buildUserCollection(): Collection<User, UserProps> {
+    return new Collection<User, UserProps>(rootUrl, (json: UserProps) =>
+      User.buildUser(json)
+    );
+  }
+
+  // you customize the User model adding new functionnality here
+  setRandomAge(): void {
+    const age = Math.round(Math.random() * 100);
+    this.set({ age });
+  }
+}
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
