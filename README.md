@@ -258,6 +258,50 @@ export class User extends Model<UserProps> {
 
 ### Views
 
+A view is a callable which takes a request and returns a response. This can be more than just a function. These allow you to structure your views and reuse code by harnessing inheritance and mixins.
+
+The particularity here is that we don't use a parser to parse the HTML so any html rendering will be done with backticks ``. ( HTML Parser might be in the roadmap).
+
+Rendering is done with HTMLTemplateElement
+see the doc here: https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement
+
+In the case of User model to render it, there is 3 sections.
+UserEdit that contain UserForm and UserShow and will render both files.
+
+You can add new Views nesting it in UserEdit or you own view depending the model you want to render.
+
+An example with UserShow.ts
+
+**UserShow.ts**
+
+```
+export class UserShow extends View<User, UserProps> {
+  template(): string {
+    return `
+      <div>
+      // Your html here
+      </div>
+    `;
+  }
+}
+```
+
+UserShow will be rendered from UserEdit.
+
+**UserForm**
+
+UserForm is were you should render forms that needs events like button click etc.
+
+Event bindings happends in a eventsMapper.
+
+```
+eventsMap(): { [key: string]: () => void } {
+    return {
+      'click:.save-model': this.onSaveClick,
+    };
+}
+```
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ROADMAP -->
