@@ -1,16 +1,25 @@
 {
-  "name": "mity",
+  "name": "niiti",
   "version": "1.0.0",
-  "description": "",
+  "description": "A very simple Typescript framework to simply render a Model to Views",
   "main": "index.ts",
+  "homepage": "https://github.com/arthurlch/nitii",
+  "bugs": {
+    "url": "https://github.com/arthurlch/nitii/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arthurlch/niiti.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:db": "json-server -w db.json",
     "start:parcel": "parcel index.html"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Arthurlch(https://arthurlch.com)",
+  "license": "MIT",
+  "private": false,
   "dependencies": {
     "axios": "^0.24.0"
   },
