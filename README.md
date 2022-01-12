@@ -254,6 +254,9 @@ export class User extends Model<UserProps> {
     this.set({ age });
   }
 }
+
+Using buildUser(data: json); You can build User model.
+Reusing the buildUser func with a custom interface to create different model.
 ```
 
 ### Views
@@ -269,10 +272,11 @@ In the case of User model to render it, there is 3 sections.
 UserEdit that contain UserForm and UserShow and will render both files.
 
 You can add new Views nesting it in UserEdit or you own view depending the model you want to render.
-
-An example with UserShow.ts
+ModelEdit || UserEdit is the class that wrap both UserShow and UserForm.
 
 **UserShow.ts**
+
+Shows model data.
 
 ```
 export class UserShow extends View<User, UserProps> {
@@ -280,6 +284,7 @@ export class UserShow extends View<User, UserProps> {
     return `
       <div>
       // Your html here
+
       </div>
     `;
   }
@@ -290,16 +295,40 @@ UserShow will be rendered from UserEdit.
 
 **UserForm**
 
-UserForm is were you should render forms that needs events like button click etc.
+UserForm is were you should render forms.
 
 Event bindings happends in a eventsMapper.
+You can create custom events in the eventsMap()
 
 ```
 eventsMap(): { [key: string]: () => void } {
     return {
+      // your custom event here
       'click:.save-model': this.onSaveClick,
     };
 }
+
+onSaveClick(): types {
+  // your code
+};
+```
+
+**UserEdit**
+
+Parent of UserForm and UserView.
+
+Will render any file for User model.
+You need to define an intance of ModelForm and ModelShow inside the ModelEdit.
+
+```
+regionsMap(): { [key: string]: string } {
+    return {
+      // add custom class here
+      userShow: '.user-show',
+      userForm: '.user-form',
+    };
+  }
+
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -307,6 +336,12 @@ eventsMap(): { [key: string]: () => void } {
 <!-- ROADMAP -->
 
 ## Roadmap
+
+Yet there is no way to parse HTML and most of the HTML need to be nested in back-ticks `` which is
+very inconvenient.
+
+HMTLParser()
+Can parse HTML to avoid manual nesting inside EditModel.
 
 See the [open issues](https://github.com/arthurlch/nitii/issues) for a full list of proposed features (and known issues).
 
@@ -316,7 +351,7 @@ See the [open issues](https://github.com/arthurlch/nitii/issues) for a full list
 
 ## Contributing
 
-Please do not open PR.
+No contribution accepted.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -332,7 +367,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Arthur - [@twitter_handle](https://twitter.com/arthurlch)
+Arthur - [@twitter](https://twitter.com/arthurlch)
 Project Link: [https://github.com/arthurlch/nitii](https://github.com/arthurlch/nitii)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
