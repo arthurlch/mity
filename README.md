@@ -97,10 +97,13 @@ Typescript 7 ~
 
 ### Installation
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/arthurlch/nitii.git
-   ```
+`https://www.npmjs.com/package/niiti`
+
+Clone the repo
+
+```sh
+git clone https://github.com/arthurlch/nitii.git
+```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
