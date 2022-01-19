@@ -1,10 +1,17 @@
 // tsconfig.json
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@App/*": ["src/*"],
-      "lib/*": ["common/*"]
-    }
-  }
+    "target": "ES2015",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "."
+  },
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"],
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Recommended",
+  "typeRoots": ["./src/types", "./node_modules/@types"]
 }
