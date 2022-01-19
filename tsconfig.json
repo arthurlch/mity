@@ -8,7 +8,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "types": ["jest"]
+    "types": ["jest"],
+    "outDir": "dist",
+    "sourceMap": true
   },
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
   "include": ["**/*.ts"],
