@@ -7,10 +7,11 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "types": ["jest"]
   },
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
-  "include": ["./src/**/*.tsx", "./src/**/*.ts"],
+  "include": ["**/*.ts"],
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Recommended",
   "typeRoots": ["./src/types", "./node_modules/@types"]
